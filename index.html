@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aya Kids - متجر الأطفال الأسطوري</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- الهيدر المتقدم -->
+    <header class="hero-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h1>Aya Kids</h1>
+                    <div class="logo-glow"></div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">الرئيسية</a></li>
+                    <li><a href="#products" class="nav-link">المنتجات</a></li>
+                    <li><a href="#categories" class="nav-link">الفئات</a></li>
+                    <li><a href="#about" class="nav-link">من نحن</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="cart-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <div class="cart-dropdown" id="cartDropdown">
+                        <div class="cart-items" id="cartItems">
+                            <p class="empty-cart">السلة فارغة</p>
+                        </div>
+                        <div class="cart-total">
+                            <span>المجموع: <strong id="cartTotal">0 ر.س</strong></span>
+                            <button class="checkout-btn">إتمام الشراء</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- قسم البطل الأسطوري -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-main">عالم أسطوري</span>
+                    <span class="title-sub">لكل طفل</span>
+                </h1>
+                <p class="hero-description">اكتشف تشكيلتنا المذهلة من منتجات الأطفال المصممة بعناية لتحقيق أحلام الصغار</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary hero-btn">
+                        <span>تسوق الآن</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="btn btn-secondary hero-btn">
+                        <span>اكتشف المزيد</span>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+                <div class="hero-product">
+                    <img src="https://images.unsplash.com/photo-1553279768-865429faedf8?w=500&h=500&fit=crop" alt="منتج أسطوري" class="product-image">
+                    <div class="product-glow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- قسم الفئات المميزة -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">فئاتنا الأسطورية</h2>
+                <p class="section-subtitle">اختر من بين تشكيلتنا الواسعة من الفئات المميزة</p>
+            </div>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- سيتم ملؤها بواسطة JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المنتجات الأسطورية -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">منتجاتنا الأسطورية</h2>
+                <p class="section-subtitle">اكتشف أحدث منتجاتنا المصممة بعناية لأطفالك</p>
+            </div>
+            <div class="products-controls">
+                <div class="search-bar" id="searchBar">
+                    <input type="text" placeholder="ابحث عن منتجات..." id="searchInput">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">الكل</button>
+                    <button class="filter-btn" data-filter="new">جديد</button>
+                    <button class="filter-btn" data-filter="sale">تخفيضات</button>
+                    <button class="filter-btn" data-filter="popular">الأكثر مبيعاً</button>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- سيتم ملؤها بواسطة JavaScript -->
+            </div>
+            <div class="load-more">
+                <button class="btn btn-outline" id="loadMoreBtn">
+                    <span>عرض المزيد</span>
+                    <i class="fas fa-spinner fa-spin" style="display: none;"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المميزات الأسطورية -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>توصيل سريع</h3>
+                    <p>توصيل خلال 24-48 ساعة لجميع أنحاء المملكة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>منتجات آمنة</h3>
+                    <p>جميع منتجاتنا مصنعة من مواد آمنة وصديقة للبيئة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>إرجاع سهل</h3>
+                    <p>يمكنك إرجاع المنتج خلال 14 يوماً بكل سهولة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم مميز</h3>
+                    <p>فريق دعم متاح 24/7 للإجابة على استفساراتك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Aya Kids</h3>
+                    <p>نحن متخصصون في توفير أفضل منتجات الأطفال بجودة عالية وأسعار تنافسية</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-snapchat"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#categories">الفئات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>خدمة العملاء</h4>
+                    <ul>
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                        <li><a href="#">الشحن والتوصيل</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>طرق الدفع</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Aya Kids. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر التمرير للأعلى -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- نموذج البحث المتقدم -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-content">
+            <div class="search-header">
+                <h3>ابحث في منتجاتنا</h3>
+                <button class="close-search" id="closeSearch">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-input-container">
+                <input type="text" placeholder="ماذا تبحث عن؟" id="modalSearchInput">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="search-results" id="searchResults">
+                <!-- سيتم ملؤها بالنتائج -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

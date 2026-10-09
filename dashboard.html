@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - Aya Kids</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- الشريط الجانبي -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-container">
+                <h1>Aya Kids</h1>
+                <div class="logo-glow"></div>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-item active">
+                <a href="#dashboard" class="menu-link" onclick="showSection('dashboard')">
+                    <i class="fas fa-chart-line"></i>
+                    <span>لوحة القيادة</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#products" class="menu-link" onclick="showSection('products')">
+                    <i class="fas fa-box"></i>
+                    <span>إدارة المنتجات</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#categories" class="menu-link" onclick="showSection('categories')">
+                    <i class="fas fa-tags"></i>
+                    <span>الفئات</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#orders" class="menu-link" onclick="showSection('orders')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>الطلبات</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#customers" class="menu-link" onclick="showSection('customers')">
+                    <i class="fas fa-users"></i>
+                    <span>العملاء</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#analytics" class="menu-link" onclick="showSection('analytics')">
+                    <i class="fas fa-analytics"></i>
+                    <span>التحليلات</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#settings" class="menu-link" onclick="showSection('settings')">
+                    <i class="fas fa-cog"></i>
+                    <span>الإعدادات</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <p class="user-name">صاحب المتجر</p>
+                    <p class="user-role">مدير النظام</p>
+                </div>
+            </div>
+            <a href="index.html" class="back-to-site">
+                <i class="fas fa-arrow-left"></i>
+                <span>العودة للموقع</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <!-- الهيدر -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h2 id="sectionTitle">لوحة القيادة</h2>
+                <p class="breadcrumb"><a href="#" onclick="showSection('dashboard')">الرئيسية</a> / <span id="currentBreadcrumb">لوحة القيادة</span></p>
+            </div>
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="ابحث في لوحة التحكم..." id="dashboardSearch">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button class="notification-btn" id="notificationBtn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </button>
+                <div class="notification-dropdown" id="notificationDropdown">
+                    <div class="notification-header">
+                        <h4>الإشعارات</h4>
+                        <button class="mark-all-read">تحديد الكل كمقروء</button>
+                    </div>
+                    <div class="notification-list" id="notificationList">
+                        <!-- سيتم ملؤها بواسطة JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- قسم لوحة القيادة -->
+        <section id="dashboard" class="section active">
+            <div class="section-header">
+                <h3>نظرة عامة</h3>
+                <div class="date-filter">
+                    <select id="dateFilter">
+                        <option value="today">اليوم</option>
+                        <option value="week">هذا الأسبوع</option>
+                        <option value="month" selected>هذا الشهر</option>
+                        <option value="year">هذه السنة</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon orders">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-number">1,247</p>
+                        <p class="stat-label">إجمالي الطلبات</p>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+12.5%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon revenue">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-number">45,892</p>
+                        <p class="stat-label">إجمالي الإيرادات</p>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+8.3%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-number">892</p>
+                        <p class="stat-label">إجمالي العملاء</p>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+15.7%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon products">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-content">
+                        <p class="stat-number">268</p>
+                        <p class="stat-label">إجمالي المنتجات</p>
+                        <div class="stat-change negative">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>-2.1%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4>المبيعات الشهرية</h4>
+                        <select class="chart-filter">
+                            <option value="sales">المبيعات</option>
+                            <option value="orders">الطلبات</option>
+                        </select>
+                    </div>
+                    <canvas id="salesChart" width="400" height="200"></canvas>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4>المنتجات الأكثر مبيعاً</h4>
+                        <select class="chart-filter">
+                            <option value="top">الأعلى</option>
+                            <option value="bottom">الأقل</option>
+                        </select>
+                    </div>
+                    <canvas id="productsChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <div class="recent-orders">
+                <div class="section-header">
+                    <h3>آخر الطلبات</h3>
+                    <a href="#" class="view-all" onclick="showSection('orders')">عرض الكل</a>
+                </div>
+                <div class="orders-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>رقم الطلب</th>
+                                <th>العميل</th>
+                                <th>المنتجات</th>
+                                <th>المجموع</th>
+                                <th>الحالة</th>
+                                <th>التاريخ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrders">
+                            <!-- سيتم ملؤها بواسطة JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم إدارة المنتجات -->
+        <section id="products" class="section">
+            <div class="section-header">
+                <h3>إدارة المنتجات</h3>
+                <div class="section-actions">
+                    <button class="btn btn-primary" onclick="showAddProductModal()">
+                        <i class="fas fa-plus"></i>
+                        <span>إضافة منتج جديد</span>
+                    </button>
+                    <button class="btn btn-outline" onclick="exportProducts()">
+                        <i class="fas fa-download"></i>
+                        <span>تصدير</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="products-controls">
+                <div class="search-bar">
+                    <input type="text" placeholder="ابحث عن منتجات..." id="productsSearch">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-controls">
+                    <select id="categoryFilter">
+                        <option value="">جميع الفئات</option>
+                        <option value="تعليمية">تعليمية</option>
+                        <option value="ألعبة">ألعبة</option>
+                        <option value="إبداعية">إبداعية</option>
+                    </select>
+                    <select id="statusFilter">
+                        <option value="">جميع الحالات</option>
+                        <option value="active">مفعل</option>
+                        <option value="inactive">غير مفعل</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- سيتم ملؤها بواسطة JavaScript -->
+            </div>
+
+            <div class="pagination" id="productsPagination">
+                <!-- سيتم ملؤها بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <!-- الأقسام الأخرى -->
+        <section id="categories" class="section">
+            <div class="section-header">
+                <h3>إدارة الفئات</h3>
+                <button class="btn btn-primary" onclick="showAddCategoryModal()">
+                    <i class="fas fa-plus"></i>
+                    <span>إضافة فئة جديدة</span>
+                </button>
+            </div>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- سيتم ملؤها بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <section id="orders" class="section">
+            <div class="section-header">
+                <h3>إدارة الطلبات</h3>
+                <div class="filter-controls">
+                    <select id="orderStatusFilter">
+                        <option value="">جميع الحالات</option>
+                        <option value="pending">قيد الانتظار</option>
+                        <option value="processing">قيد المعالجة</option>
+                        <option value="completed">مكتمل</option>
+                        <option value="cancelled">ملغي</option>
+                    </select>
+                </div>
+            </div>
+            <div class="orders-table" id="ordersTable">
+                <!-- سيتم ملؤها بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <section id="customers" class="section">
+            <div class="section-header">
+                <h3>إدارة العملاء</h3>
+            </div>
+            <div class="customers-table" id="customersTable">
+                <!-- سيتم ملؤها بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <section id="analytics" class="section">
+            <div class="section-header">
+                <h3>التحليلات والتقارير</h3>
+            </div>
+            <div class="analytics-grid" id="analyticsGrid">
+                <!-- سيتم ملؤها بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <section id="settings" class="section">
+            <div class="section-header">
+                <h3>الإعدادات</h3>
+            </div>
+            <div class="settings-grid" id="settingsGrid">
+                <!-- سيتم ملؤها بواسطة JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- نوافذ منبثقة -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">إضافة منتج جديد</h3>
+                <button class="close-modal" onclick="closeModal('productModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="productForm" class="modal-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>اسم المنتج *</label>
+                        <input type="text" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label>الفئة *</label>
+                        <select name="category" required>
+                            <option value="">اختر الفئة</option>
+                            <option value="تعليمية">تعليمية</option>
+                            <option value="ألعبة">ألعبة</option>
+                            <option value="إبداعية">إبداعية</option>
+                            <option value="إلكترونية">إلكترونية</option>
+                            <option value="قصص">قصص</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>السعر *</label>
+                        <input type="number" name="price" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>السعر الأصلي</label>
+                        <input type="number" name="original_price" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>رابط الصورة</label>
+                        <input type="url" name="image_url">
+                    </div>
+                    <div class="form-group">
+                        <label>الكمية في المخزون *</label>
+                        <input type="number" name="stock_quantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label>التقييم (من 5)</label>
+                        <input type="number" name="rating" step="0.1" min="0" max="5">
+                    </div>
+                    <div class="form-group">
+                        <label>عدد التقييمات</label>
+                        <input type="number" name="reviews_count">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>الوصف التفصيلي</label>
+                        <textarea name="description" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>شارة المنتج</label>
+                        <select name="badge">
+                            <option value="">لا شارة</option>
+                            <option value="جديد">جديد</option>
+                            <option value="تخفيض">تخفيض</option>
+                            <option value="الأكثر مبيعاً">الأكثر مبيعاً</option>
+                            <option value="مميز">مميز</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>حالة المنتج</label>
+                        <select name="is_active">
+                            <option value="true" selected>مفعل</option>
+                            <option value="false">غير مفعل</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('productModal')">إلغاء</button>
+                    <button type="submit" class="btn btn-primary">حفظ المنتج</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="categoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>إضافة فئة جديدة</h3>
+                <button class="close-modal" onclick="closeModal('categoryModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="categoryForm" class="modal-form">
+                <div class="form-group">
+                    <label>اسم الفئة *</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>أيقونة الفئة</label>
+                    <input type="text" name="icon" placeholder="مثال: fas fa-home">
+                </div>
+                <div class="form-group">
+                    <label>لون الفئة</label>
+                    <input type="color" name="color" value="#ff6b9d">
+                </div>
+                <div class="form-group">
+                    <label>ترتيب الفئة</label>
+                    <input type="number" name="sort_order" value="1">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('categoryModal')">إلغاء</button>
+                    <button type="submit" class="btn btn-primary">حفظ الفئة</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard-enhanced.js"></script>
+</body>
+</html>
